@@ -1,14 +1,10 @@
 import React from "react";
 import type { AppProps } from "next/app";
-import { ThemeProvider } from "styled-components";
-import GlobalStyle from "../styles/global";
-import theme from "../styles/theme";
+import "../assets/sass/main.scss";
 
-const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => (
-  <ThemeProvider theme={theme}>
-    <Component {...pageProps} />
-    <GlobalStyle />
-  </ThemeProvider>
-);
+function MyApp({ Component, pageProps }: AppProps) {
+  const AnyComponent = Component as any;
+  return <AnyComponent {...pageProps} />;
+}
 
 export default MyApp;
